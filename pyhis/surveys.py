@@ -45,7 +45,7 @@ class GbtType(Survey):
         self.n_pixels = 256
 
         # spectral
-        self.n_channels = 512
+        self.n_channels = 1024
 
         # redshift
         self.z_min, self.z_max = 0.5, 1.

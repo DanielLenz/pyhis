@@ -70,7 +70,7 @@ def generate_spectra(lightcone, survey, galaxy, outname=None):
             velo_center=halo[1]['velo'],
             flux=halo[1]['flux'],
             v_rot=galaxy.v_rot[i],
-            turb_velo=galaxy.turb_velo[i],
+            v_turb=galaxy.v_turb[i],
             solid_rot=galaxy.solid_rot[i],
             skewness=galaxy.skewness[i],
             linemodel=linemodel)
@@ -90,14 +90,14 @@ class Spectrum(object):
     def __init__(
             self,
             lon, lat,
-            velo_center, flux, v_rot, turb_velo, solid_rot, skewness,
+            velo_center, flux, v_rot, v_turb, solid_rot, skewness,
             linemodel):
 
         self.velo_center = velo_center
         self.flux = flux
         self.logflux = np.log10(self.flux)
         self.v_rot = v_rot
-        self.turb_velo = turb_velo
+        self.v_turb = v_turb
         self.solid_rot = solid_rot
         self.skewness = skewness
         self.model = linemodel
@@ -116,7 +116,7 @@ class Spectrum(object):
                 self.logflux,
                 self.velo_center,
                 self.v_rot,
-                self.turb_velo,
+                self.v_turb,
                 self.solid_rot,
                 self.skewness
             ])
